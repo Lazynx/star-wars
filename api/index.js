@@ -1,6 +1,6 @@
 import express from 'express';
 import got from 'got';
-import logger from './middleware/logger.mjs';
+import logger from './middleware/logger.js';
 import cors from 'cors';
 
 const app = express();
