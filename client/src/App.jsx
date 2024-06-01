@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
 import logo from './assets/star_wars_logo.png';
 import SearchResults from './components/SearchResults';
 import DataList from './components/DataList';
-
-const loadFont = () => {
-  const link = document.createElement('link');
-  link.href = 'https://fonts.cdnfonts.com/css/star-jedi';
-  link.rel = 'stylesheet';
-  document.head.appendChild(link);
-};
 
 function App() {
   const [query, setQuery] = useState('');
@@ -30,10 +23,6 @@ function App() {
       });
   };
 
-  useEffect(() => {
-    loadFont();
-  }, []);
-
   const handleReset = () => {
     setResults([]);
     setQuery('');
@@ -44,7 +33,9 @@ function App() {
       <div className="App">
         <header className="App-header">
           <div className="logo-container">
-            <img src={logo} alt="Star Wars Logo" className="logo" />
+            <NavLink to="/">
+              <img src={logo} alt="Star Wars Logo" className="logo" />
+            </NavLink>
             <div className="search search-container">
               <input
                 type="text"
@@ -62,27 +53,48 @@ function App() {
           <nav className="main-nav">
             <ul>
               <li>
-                <NavLink exact to="/" onClick={handleReset} activeClassName="active">
+                <NavLink
+                  to="/"
+                  onClick={handleReset}
+                  className={({ isActive }) => isActive ? 'active' : ''}
+                  end
+                >
                   Films
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/planets" onClick={handleReset} activeClassName="active">
+                <NavLink
+                  to="/planets"
+                  onClick={handleReset}
+                  className={({ isActive }) => isActive ? 'active' : ''}
+                >
                   Planets
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/people" onClick={handleReset} activeClassName="active">
+                <NavLink
+                  to="/people"
+                  onClick={handleReset}
+                  className={({ isActive }) => isActive ? 'active' : ''}
+                >
                   People
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/starships" onClick={handleReset} activeClassName="active">
+                <NavLink
+                  to="/starships"
+                  onClick={handleReset}
+                  className={({ isActive }) => isActive ? 'active' : ''}
+                >
                   Starships
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/vehicles" onClick={handleReset} activeClassName="active">
+                <NavLink
+                  to="/vehicles"
+                  onClick={handleReset}
+                  className={({ isActive }) => isActive ? 'active' : ''}
+                >
                   Vehicles
                 </NavLink>
               </li>
@@ -106,6 +118,7 @@ function App() {
             <Route
               path="/"
               element={<DataList apiEndpoint={`${API_BASE_URL}/films`} dataKeys={['episode_id', 'director', 'producer', 'release_date']} />}
+              end
             />
             <Route
               path="/starships"

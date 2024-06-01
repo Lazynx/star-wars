@@ -1,12 +1,19 @@
+@font-face {
+  font-family: 'Starjedi';
+  src: url('../public/fonts/Starjedi.woff') format('woff');
+}
+
+
 /* Общее оформление */
 body {
   background-color: #000;
   color: #fff;
-  font-family: 'Star Jedi', sans-serif;
+  font-family: 'Starjedi', sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
 }
+
 
 /* Логотип */
 .logo-container {
@@ -207,7 +214,6 @@ li {
   margin: 0;
 }
 
-/* Фиксация хедера */
 .App-header {
   position: fixed;
   width: 100%;
@@ -215,7 +221,17 @@ li {
   left: 0;
   background-color: #000;
   z-index: 1000;
-  padding: 20px;
+  padding: 0;
   padding-bottom: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 360px) {
+  main {
+    margin-top: 190px;
+  }
+
+  .search {
+    right: 10px;
+  }
 }
