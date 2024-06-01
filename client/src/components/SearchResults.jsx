@@ -3,7 +3,7 @@ import React from 'react';
 function SearchResults({ results }) {
   return (
     <div>
-        <h2 className="results">Search Results:</h2>
+        <h2 className="special">Search Results:</h2>
         <div className="card-container">
             {results.map((result, index) => (
                 <div key={index} className="card">

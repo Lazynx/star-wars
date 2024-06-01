@@ -3,27 +3,23 @@
   src: url('../public/fonts/Starjedi.woff') format('woff');
 }
 
-
-/* Общее оформление */
 body {
   background-color: #000;
   color: #fff;
+  font-size: 14px;
   font-family: 'Starjedi', sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-
-/* Логотип */
 .logo-container {
-  margin: 25px 0;
+  margin: 15px 0;
 }
 
 .logo {
-  width: 200px;
+  width: 250px;
 }
-
 .search {
   position: absolute;
   right: 60px;
@@ -40,10 +36,10 @@ body {
 .search-container input {
   padding: 10px;
   font-size: 1em;
-  border: 2px solid #fff;
+  border: 2px solid #ffd700; 
   border-radius: 20px;
   background-color: #222;
-  color: #fff;
+  color: #ffd700;
   margin-right: 10px;
   width: 0;
   opacity: 0;
@@ -59,30 +55,33 @@ body {
 .search-container button {
   padding: 10px 20px;
   font-size: 1em;
-  background-color: #fff;
-  color: #000;
-  border: 2px solid #fff;
+  color: #ffd700; 
+  background-color: #000;
+  border: 2px solid #ffd700; 
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color .3s ease-in-out;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
 }
 
 .search-container button:hover {
-  background-color: #48494a;
+  color: #000;
+  background-color: #ffd700; 
+  box-shadow: 0 0 10px #ffd700, 0 0 15px #ffd700;
 }
-
 .results {
   margin: 0;
   color: #fff;
   margin-bottom: 30px;
 }
 
-/* Главная навигация */
 .main-nav ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  background-color: #000;
   border-bottom: 1px solid #48494a;
   padding-bottom: 20px;
   display: flex;
@@ -104,7 +103,7 @@ body {
 }
 
 .main-nav a.active {
-  color: #fff;
+  color: #ffd700;
   font-weight: bold;
 }
 
@@ -122,12 +121,12 @@ body {
   font-size: 1.4em;
 }
 
-/* Основное содержимое */
 main {
   padding: 20px;
   margin-top: 180px;
   min-height: 58vh;
-  padding-top: 120px; /* Добавляем отступ, чтобы не перекрывать контент */
+  padding-top: 120px; 
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -158,16 +157,34 @@ li {
   border-radius: 5px;
   text-align: left;
 }
-
 .card {
+  position: relative;
   border: 1px solid #B5B7B7;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   padding: 20px;
   cursor: pointer;
+  z-index: 0;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  z-index: -1; 
 }
 
 .card:hover {
-  border-color: white;
+  border-color: #ffd700;
+  box-shadow: 0 0 10px #ffd700, 0 0 15px #ffd700; 
+}
+
+.card:hover::before {
+  background-color: rgba(255, 215, 0, 0.2); 
 }
 
 .card-container {
@@ -178,7 +195,6 @@ li {
 }
 
 .card {
-  background-color: #333;
   border: 1px solid #444;
   border-radius: 5px;
   padding: 10px;
@@ -199,7 +215,7 @@ li {
 }
 
 .special {
-  color: #fff;
+  color: #ffd700;
   font-style: italic;
   font-weight: bolder;
 }
@@ -224,14 +240,88 @@ li {
   padding: 0;
   padding-bottom: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
 }
 
-@media (max-width: 360px) {
+.App-header.transparent {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.home {
+  position: relative;
+  height: 80vh;
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%),
+    linear-gradient(to left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%),
+    linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%),
+    linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%),
+    url('./assets/star_wars_bagr.jpeg') no-repeat center center;
+  background-size: cover;
+}
+
+.home-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.home h1 {
+  font-size: 3em;
+  margin: 0;
+  color: #ffd700; 
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.home p {
+  font-size: 1.2em;
+  margin: 10px 0;
+  opacity: 0.7;
+}
+
+
+.explore-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 30px;
+  font-size: 1.2em;
+  color: #ffd700; 
+  background-color: #000; 
+  border: 2px solid #ffd700;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+}
+
+.explore-button:hover {
+  color: #000;
+  background-color: #ffd700; 
+  box-shadow: 0 0 10px #ffd700, 0 0 15px #ffd700;
+}
+
+@media (max-width: 380px) {
   main {
-    margin-top: 190px;
+    margin-top: 200px;
   }
 
   .search {
     right: 10px;
+  }
+
+  .home {
+    height: 60vh;
+  }
+
+  .home h1 {
+    font-size: 2em;
   }
 }
