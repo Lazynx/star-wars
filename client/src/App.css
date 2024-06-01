@@ -1,13 +1,8 @@
-@font-face {
-  font-family: 'Starjedi';
-  src: url('../public/fonts/Starjedi.woff') format('woff');
-}
-
 body {
   background-color: #000;
   color: #fff;
   font-size: 14px;
-  font-family: 'Starjedi', sans-serif;
+  font-family: sans-serif;
   margin: 0;
   padding: 0;
   text-align: center;
@@ -308,7 +303,7 @@ li {
   box-shadow: 0 0 10px #ffd700, 0 0 15px #ffd700;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 420px) {
   main {
     margin-top: 200px;
   }
